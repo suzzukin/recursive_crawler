@@ -10,7 +10,7 @@ def _read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 
-install_requires = ['beautifulsoup4', 'requests']
+install_requires = ['beautifulsoup4==4.13.4', 'requests==2.31.0']
 
 
 setup(name='recursive_crawler',

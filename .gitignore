@@ -1,0 +1,8 @@
+.idea
+*.pyc
+*.pyo
+__pycache__
+.debhelper
+.pybuild
+*.egg-info
+build

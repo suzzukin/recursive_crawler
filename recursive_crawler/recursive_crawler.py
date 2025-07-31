@@ -11,7 +11,7 @@ import logging
 import signal
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from bs4 import BeautifulSoup
-from urllib.parse import urlparse, urljoin, quote
+from urllib.parse import urljoin, quote
 from typing import Set, Optional
 
 
@@ -468,12 +468,10 @@ def main():
     signal.signal(signal.SIGINT, handle_signal)
     signal.signal(signal.SIGTERM, handle_signal)
 
-    # Run the crawler
     try:
         crawler.crawl()
     except KeyboardInterrupt:
         crawler.shutdown_event.set()
-        # crawler._handle_shutdown()
         sys.exit(0)
 
 

@@ -4,7 +4,7 @@
 import os
 from setuptools import setup, find_packages
 
-__version__ = '0.1.0'
+__version__ = '0.2.0'
 
 def _read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
@@ -22,10 +22,14 @@ setup(name='recursive_crawler',
       author_email='artem@susi.ltd',
       url='https://github.com/suzzukin/recursive_crawler',
       install_requires=install_requires,
-      packages=find_packages() + [],
-      py_modules=['recursive_crawler', 'recursive_crawler.recursive_crawler'],
-      scripts=['recursive_crawler/recursive_crawler.py'],
+      packages=find_packages(),
+      entry_points={
+          'console_scripts': [
+              'recursive-crawler=recursive_crawler.recursive_crawler:main',
+          ],
+      },
       platforms=['linux', 'darwin'],
       include_package_data=True,
-      zip_safe=False
+      zip_safe=False,
+      python_requires='>=3.9',
       )
